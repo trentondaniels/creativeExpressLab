@@ -4,7 +4,7 @@ var MovieSchema = new mongoose.Schema({
   money: String,
   trailerUrl: String,
   description: String,
-  comments: Object,
+  comments: [{comment: String, upvotes: {type: Number, default: 0}}],
   votes: {type: Number, default: 0}
 });
 
