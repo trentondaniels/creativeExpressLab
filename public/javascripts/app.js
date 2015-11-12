@@ -45,5 +45,13 @@ function mainCtrl ($scope, movieFetcher, userFetcher) {
 
   movieFetcher.get().then(function (data) {
     $scope.movies = data;
+    console.log(data);
   })
+
+  $scope.addComment = function(index, comment) {
+    var newComment = {text:comment, user:$scope.user};
+    $scope.movies[index].comments.push(newComment);
+    console.log($scope.movies[index].comments);
+    //TODO: Add comment to MongoDB
+  }
 }

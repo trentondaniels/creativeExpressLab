@@ -35,11 +35,10 @@
             <h4> <strong>Plot Summary:</strong> {{ m.description }}</h4>
             <hr>
             <h5>Comments:</h4>
-            <div class="comments" ng-repeat="comment in m.comments">
-            </div>
-            <form>
-              <input type="text" value="">
-              <input type="submit" value="Submit Comment">
+            <div class="comments" ng-repeat="comment in m.comments">{{ comment.text }} -- {{ comment.user }}</div>
+            <form ng-submit="addComment($index, commentContent)">
+              <input type="text" ng-model="commentContent"></input>
+              <button type="submit">Submit Comment</button>
             </form>
           </div>
         </div>
