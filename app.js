@@ -14,8 +14,8 @@ require('./models/User');
 require('./models/Comment');
 var User = mongoose.model('User');
 
-var GITHUB_CLIENT_ID = '57d8d94a06b50aafc1c8'
-var GITHUB_CLIENT_SECRET = '76f198ac6a7e8a2c6544dd8724ac0844ecc36b01'
+var GITHUB_CLIENT_ID = 'f83b7418d4728da69f0f'
+var GITHUB_CLIENT_SECRET = '48ceb13c4e3c18ab13434cdbae572111c8d44c5e'
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -42,7 +42,7 @@ app.use(passport.session());
 passport.use(new GitHubStrategy({
   clientID: GITHUB_CLIENT_ID,
   clientSecret: GITHUB_CLIENT_SECRET,
-  callbackURL: 'http://ec2-54-148-77-110.us-west-2.compute.amazonaws.com:4015/auth/github/callback'
+  callbackURL: 'http://ec2-54-148-248-229.us-west-2.compute.amazonaws.com:4015/auth/github/callback'
 }, function(accessToken, refreshToken, profile, done) {
     User.findOne({
       username: profile.username
