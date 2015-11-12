@@ -21,23 +21,27 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/*router.get('/:movie', function(req, res) {
-  res.json(req.comment);
+router.put('/:movie/comment', function (req, res, next) {
+console.log("In put: " + req.body);
+  var comment = req.body;
+  req.movie.addComment(comment, function(err, movie){
+    if (err) {return next (err)}
+    res.json(req.body);
+  });
 });
 
-router.post('/comments', function(req, res, next) {
-  var comment = new Comment(req.body);
-  comment.save(function(err, comment){
-    if(err){ return next(err); }
-    res.json(comment);
+router.put('/:movie/vote', function (req, res, next) {
+  req.movie.vote(function(err, movie) {
+    if (err) {return next (err)}
+    res.json(movie);
   });
-});n
+});
 
-router.put('/comments/:comment/upvote', function(req, res, next) {
-  req.comment.upvote(function(err, comment){
-    if (err) { return next(err); }
-    res.json(comment);
+router.put('/:movie/downVote', function (req, res, next) {
+  req.movie.downVote(function (err, movie) {
+    if (err) {return next (err)}
+    res.json(movie);
   });
-});*/
+});
 
 module.exports = router;
