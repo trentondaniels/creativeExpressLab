@@ -24,26 +24,27 @@
         .
       </h1>
     </div>
-
-    <ul ng-if='movies.length' class='list center stretch'>
-      <li ng-repeat="m in movies | orderBy: '-votes'" class='movie'>
-        <div class="col-md-5">
-          <h2 class="movname"><strong>{{ m.name }}  </strong><button class="glyphicon glyphicon-thumbs-up" ng-click="vote(m)"></button> {{m.votes}} votes <button class ="glyphicon glyphicon-thumbs-down" ng-click="downVote(m)"></button></h2>
-          <h3 class="money"> Grossed: {{ m.money }} </h3>
-          <iframe width="640" height="360" src="{{m.trailerUrl}}" frameborder="0" allowfullscreen></iframe>
-          <div class = description>
-            <h4> <strong>Plot Summary:</strong> {{ m.description }}</h4>
-            <hr>
-            <h5>Comments:</h4>
-            <div class="comments" ng-repeat="comment in m.comments">{{ comment.comment }} -- {{ comment.user }}</div>
-            <form ng-submit="addComment(commentContent, m)">
-              <input type="text" ng-model="commentContent" class="commentForm"></input>
-              <button type="submit">Submit Comment</button>
-            </form>
+    <div class="container">
+      <ul ng-if='movies.length' class='list center stretch'>
+        <li ng-repeat="m in movies | orderBy: '-votes'" class='movie row'>
+          <div class="col-md-5">
+            <h2 class="movname"><strong>{{ m.name }}  </strong><button class="glyphicon glyphicon-thumbs-up" ng-click="vote(m)"></button> {{m.votes}} votes <button class ="glyphicon glyphicon-thumbs-down" ng-click="downVote(m)"></button></h2>
+            <h3 class="money"> Grossed: {{ m.money }} </h3>
+            <iframe width="640" height="360" src="{{m.trailerUrl}}" frameborder="0" allowfullscreen></iframe>
+            <div class = description>
+              <h4> <strong>Plot Summary:</strong> {{ m.description }}</h4>
+              <hr>
+              <h4><strong>Comments:</strong></h4>
+              <div class="comments" ng-repeat="comment in m.comments"><span class="user">{{comment.user}}: </span>{{ comment.comment }}</div>
+              <form ng-submit="addComment(commentContent, m)">
+                <input type="text" ng-model="commentContent" class="commentForm"></input>
+                <button type="submit">Submit Comment</button>
+              </form>
+            </div>
           </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
 
   </div>
 

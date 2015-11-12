@@ -44,15 +44,16 @@ div, ul {
 .list {
   text-align: center;
   list-style: none;
-  background-color: white;
+  background-color: #E0E0E0;
   color: black;
+  padding-top: 15px;
 }
 body{
   background-color: white;
 }
 #header{
-  background-color:gray;
-
+  background-color: #19204A;
+  color: white;
 }
 .description{
     text-align: center;
@@ -70,8 +71,35 @@ body{
 
 .movie {
   min-height: 600px;
+  border-radius: 25px;
+  background-color: #9999FF;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding-bottom: 10px;
 }
 
 img {
   width: 75px;
+}
+
+.description h4 {
+  text-align: left;
+}
+
+.comments {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.user {
+  color: #660000;
+}
+
+form {
+ margin-top: 10px;
+ float: right;
+}
+
+.commentForm {
+ width: 300px;
 }
