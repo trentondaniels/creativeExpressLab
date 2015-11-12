@@ -37,7 +37,7 @@
             <h5>Comments:</h4>
             <div class="comments" ng-repeat="comment in m.comments">{{ comment.comment }} -- {{ comment.user }}</div>
             <form ng-submit="addComment(commentContent, m)">
-              <input type="text" ng-model="commentContent"></input>
+              <input type="text" ng-model="commentContent" class="commentForm"></input>
               <button type="submit">Submit Comment</button>
             </form>
           </div>
