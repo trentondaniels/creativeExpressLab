@@ -29,8 +29,8 @@ router.post('/addComment', ensureAuthenticated, function(req, res) {
             res.writeHead(200);
             res.end("");
         });
-    } 
-  }
+    }); 
+  });
 });
 
 function ensureAuthenticated(req, res, next) {
